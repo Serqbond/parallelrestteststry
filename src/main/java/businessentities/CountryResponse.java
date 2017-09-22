@@ -6,6 +6,8 @@ public class CountryResponse {
     @SerializedName("result")
     private CountryInfo countryInfo;
 
+
+
     private String[] messages;
 
     public CountryInfo getCountryInfo()

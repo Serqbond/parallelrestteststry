@@ -21,9 +21,9 @@ public class CountryInfo {
         return largestCity;
     }
 
-    public void setLargest_city (String largest_city)
-    {
+    public CountryInfo setLargest_city (String largest_city)    {
         this.largestCity = largest_city;
+        return this;
     }
 
     public String getArea ()
@@ -31,9 +31,9 @@ public class CountryInfo {
         return area;
     }
 
-    public void setArea (String area)
-    {
+    public CountryInfo setArea (String area)    {
         this.area = area;
+        return this;
     }
 
     public String getName ()
@@ -41,9 +41,9 @@ public class CountryInfo {
         return name;
     }
 
-    public void setName (String name)
-    {
+    public CountryInfo setName (String name)    {
         this.name = name;
+        return this;
     }
 
     public String getAbbr ()
@@ -51,9 +51,9 @@ public class CountryInfo {
         return abbr;
     }
 
-    public void setAbbr (String abbr)
-    {
+    public CountryInfo setAbbr (String abbr)    {
         this.abbr = abbr;
+        return this;
     }
 
     public String getCapital ()
@@ -61,9 +61,9 @@ public class CountryInfo {
         return capital;
     }
 
-    public void setCapital (String capital)
-    {
+    public CountryInfo setCapital (String capital)    {
         this.capital = capital;
+        return this;
     }
 
     public String getCountry ()
@@ -71,9 +71,9 @@ public class CountryInfo {
         return country;
     }
 
-    public void setCountry (String country)
-    {
+    public CountryInfo setCountry (String country)    {
         this.country = country;
+        return this;
     }
 
     @Override
