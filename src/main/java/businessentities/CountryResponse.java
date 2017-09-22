@@ -4,18 +4,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CountryResponse {
     @SerializedName("result")
-    private CountryInfo countryInfo;
-
-
+    private CountryInfo[] countryInfo;
 
     private String[] messages;
 
-    public CountryInfo getCountryInfo()
+    public CountryInfo[] getCountryInfo()
     {
         return countryInfo;
     }
 
-    public void setCountryInfo(CountryInfo countryInfo)
+    public void setCountryInfo(CountryInfo[] countryInfo)
     {
         this.countryInfo = countryInfo;
     }
@@ -33,7 +31,7 @@ public class CountryResponse {
     @Override
     public String toString()
     {
-        return "ClassPojo [countryInfo = "+ countryInfo + messagesToString() +"]";
+        return "ClassPojo [countryInfo = "+ countryInfo.length + messagesToString() +"]";
     }
 
     private String messagesToString(){
