@@ -39,7 +39,7 @@ public class SearchTests extends FunctionalTest{
         Assert.assertTrue("Capitals are different. Expected " + expectedCountryInfo.getCapital() + " Actual: " + actualIndia.getCapital(),
                 actualIndia.getCapital().equalsIgnoreCase(expectedCountryInfo.getCapital()));
         Assert.assertTrue(actualIndia.getAbbr().equalsIgnoreCase(expectedCountryInfo.getAbbr()));
-        Assert.assertTrue("Capitals are different. Expected " + expectedCountryInfo.getArea() + " Actual: " + actualIndia.getArea(),
+        Assert.assertTrue("Areas are different. Expected " + expectedCountryInfo.getArea() + " Actual: " + actualIndia.getArea(),
                 actualIndia.getArea().equalsIgnoreCase(expectedCountryInfo.getArea()));
         Assert.assertTrue(actualIndia.getCountry().equalsIgnoreCase(expectedCountryInfo.getCountry()));
         Assert.assertTrue(actualIndia.getLargestCity().equalsIgnoreCase(expectedCountryInfo.getLargestCity()));
