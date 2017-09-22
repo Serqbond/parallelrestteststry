@@ -10,6 +10,7 @@ public class FunctionalTest {
 //        System.setProperty("http.proxyHost", "localhost");
 //        System.setProperty("http.proxyPort", "8888");
         String baseHost = System.getProperty("server.host");
+        System.out.println(baseHost);
         if(baseHost==null){
             baseHost = "http://services.groupkt.com";
         }
