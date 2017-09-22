@@ -20,3 +20,29 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/libraries/Maven__com_google_code_gson_gson_2_8_1.xml
+/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml
+/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml
+/.idea/libraries/Maven__io_rest_assured_json_path_3_0_3.xml
+/.idea/libraries/Maven__io_rest_assured_rest_assured_3_0_3.xml
+/.idea/libraries/Maven__io_rest_assured_rest_assured_common_3_0_3.xml
+/.idea/libraries/Maven__io_rest_assured_xml_path_3_0_3.xml
+/.idea/libraries/Maven__junit_junit_4_12.xml
+/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml
+/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml
+/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml
+/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_1.xml
+/.idea/libraries/Maven__org_ccil_cowan_tagsoup_tagsoup_1_2_1.xml
+/.idea/libraries/Maven__org_codehaus_groovy_groovy_2_4_9.xml
+/.idea/libraries/Maven__org_codehaus_groovy_groovy_json_2_4_9.xml
+/.idea/libraries/Maven__org_codehaus_groovy_groovy_xml_2_4_9.xml
+/.idea/libraries/Maven__org_hamcrest_hamcrest_all_1_3.xml
+/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/veryfirst.iml
