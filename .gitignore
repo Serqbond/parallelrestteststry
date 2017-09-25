@@ -65,3 +65,5 @@ hs_err_pid*
 /target/surefire-reports/TEST-[2].xml
 /target/surefire-reports/[2].txt
 /target/surefire-reports/TEST-[2].xml
+/target/surefire-reports/[2].txt
+/target/surefire-reports/TEST-[2].xml

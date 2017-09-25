@@ -12,6 +12,8 @@ public class FunctionalTest {
         String baseHost = System.getProperty("server.host");
         System.out.println(baseHost);
         if(baseHost==null){
+            baseHost = System.getenv("server.host");
+            System.out.println(baseHost);
             baseHost = "http://services.groupkt.com";
         }
         RestAssured.baseURI = baseHost;
