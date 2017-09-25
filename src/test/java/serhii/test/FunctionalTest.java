@@ -9,13 +9,13 @@ public class FunctionalTest {
     public static void setup() {
 //        System.setProperty("http.proxyHost", "localhost");
 //        System.setProperty("http.proxyPort", "8888");
-        String baseHost = System.getProperty("server.host");
+        String baseHost = System.getenv("server.host");
         System.out.println(baseHost);
+        
         if(baseHost==null){
-            baseHost = System.getenv("server.host");
-            System.out.println(baseHost);
             baseHost = "http://services.groupkt.com";
         }
+
         RestAssured.baseURI = baseHost;
     }
 }
