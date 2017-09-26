@@ -5,13 +5,9 @@ import businessentities.CountryInfoDeserializer;
 import businessentities.StateResponse;
 import com.google.gson.*;
 import io.restassured.RestAssured;
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.lang.reflect.Type;
 import java.util.Arrays;
-
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -43,5 +39,21 @@ public class AllStatesTest extends FunctionalTest{
         Gson gson = gsonBuilder.create();
         StateResponse stateResponse = gson.fromJson(response, StateResponse.class);
         Assert.assertEquals("Lucknow", Arrays.stream(stateResponse.getCountryResponse().getCountryInfo()).findFirst().get().getCapital());
+    }
+
+    @Test
+    public void getJsonBodyAndOtherHost(){
+        System.out.println("getJsonBodyAndOtherHost " + Thread.currentThread().getName());
+        String response = get(basePath + "/get/IND/UP").body().asString();
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(CountryInfo[].class, new CountryInfoDeserializer());
+        Gson gson = gsonBuilder.create();
+        StateResponse stateResponse = gson.fromJson(response, StateResponse.class);
+        Assert.assertEquals("Lucknow", Arrays.stream(stateResponse.getCountryResponse().getCountryInfo()).findFirst().get().getCapital());
+
+        RestAssured rest =  new RestAssured();
+        rest.baseURI = "http://api.openweathermap.org";
+        rest.get("/data/2.5/weather?lat=35&lon=139").then().statusCode(401);
     }
 }

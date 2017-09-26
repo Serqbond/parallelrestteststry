@@ -7,8 +7,8 @@ public class FunctionalTest {
 
     @BeforeClass
     public static void setup() {
-//        System.setProperty("http.proxyHost", "localhost");
-//        System.setProperty("http.proxyPort", "8888");
+        System.setProperty("http.proxyHost", "localhost");
+        System.setProperty("http.proxyPort", "8888");
         String baseHost = System.getenv("server.host");
         System.out.println(baseHost);
 
