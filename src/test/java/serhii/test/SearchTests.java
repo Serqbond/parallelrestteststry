@@ -12,6 +12,8 @@ import static io.restassured.RestAssured.get;
 
 public class SearchTests extends FunctionalTest{
 
+    private final String basePath = "/state";
+
     @Test
     public void searchByText(){
         System.out.println("searchByText " + Thread.currentThread().getName());
@@ -23,7 +25,7 @@ public class SearchTests extends FunctionalTest{
                 .setLargest_city("Visakhapatnam")
                 .setName("Andhra Pradesh");
 
-        String response = get("/state/search/IND?text=pradesh").body().asString();
+        String response = get(basePath + "/search/IND?text=pradesh").body().asString();
         Gson gson = new Gson();
         StateResponse stateListResponse = gson.fromJson(response, StateResponse.class);
 
@@ -53,7 +55,7 @@ public class SearchTests extends FunctionalTest{
                 .setLargest_city("Visakhapatnam")
                 .setName("Andhra Pradesh");
 
-        String response = get("/state/search/IND?text=pradesh").body().asString();
+        String response = get(basePath + "/search/IND?text=pradesh").body().asString();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(CountryInfo[].class, new CountryInfoDeserializer());

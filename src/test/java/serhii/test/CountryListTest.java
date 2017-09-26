@@ -13,11 +13,13 @@ import static io.restassured.RestAssured.get;
 
 public class CountryListTest extends FunctionalTest {
 
+    private final String basePath = "/country";
+
     @Test
     public void listContainsUkraine(){
         System.out.println("listContainsUkraine " + Thread.currentThread().getName());
         Gson gson = new Gson();
-        String response = get("/country/get/all").body().asString();
+        String response = get(basePath + "/get/all").body().asString();
 
         AllCountries stateListResponse = gson.fromJson(response, AllCountries.class);
 
@@ -39,7 +41,7 @@ public class CountryListTest extends FunctionalTest {
                 .setAlpha3_code("DZA")
                 ;
 
-        AllCountries countries  = get("/country/get/all").as(AllCountries.class);
+        AllCountries countries  = get(basePath + "/get/all").as(AllCountries.class);
 
         Result actualAlgeria = Arrays.stream(countries.getRestResponse().getResult())
                 .filter(country -> country.getName().contains("Algeria"))

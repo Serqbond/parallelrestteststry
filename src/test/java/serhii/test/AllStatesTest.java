@@ -17,16 +17,18 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class AllStatesTest extends FunctionalTest{
 
+    private final String basePath = "/state";
+
     @Test
     public void getStatusCodeTestCase(){
         System.out.println("getStatusCodeTestCase " + Thread.currentThread().getName());
-        get("/state/get/IND/UP").then().statusCode(200);
+        get(basePath + "/get/IND/UP").then().statusCode(200);
     }
 
     @Test
     public void getCapitalWorks(){
         System.out.println("getCapitalWorks " + Thread.currentThread().getName());
-        get("/state/get/IND/UP").then()
+        get(basePath + "/get/IND/UP").then()
                 .body("RestResponse.result.capital", is("Lucknow"));
 
     }
@@ -34,7 +36,7 @@ public class AllStatesTest extends FunctionalTest{
     @Test
     public void getJsonBody(){
         System.out.println("getJsonBody " + Thread.currentThread().getName());
-        String response = get("/state/get/IND/UP").body().asString();
+        String response = get(basePath + "/get/IND/UP").body().asString();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(CountryInfo[].class, new CountryInfoDeserializer());
