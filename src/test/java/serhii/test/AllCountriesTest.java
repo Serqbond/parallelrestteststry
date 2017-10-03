@@ -11,6 +11,8 @@ import static io.restassured.RestAssured.options;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.runner.*;
 
+import java.util.Arrays;
+
 public class AllCountriesTest extends FunctionalTest{
 
     private final String basePath = "/country";
@@ -38,7 +40,7 @@ public class AllCountriesTest extends FunctionalTest{
         Gson gson = new Gson();
         String response = get(basePath + "/get/iso2code/IU").body().asString();
         StateResponse stateResponse = gson.fromJson(response, StateResponse.class);
-        Assert.assertThat(stateResponse.getCountryResponse().getMessages()[0], CoreMatchers.containsString("More webservices"));
-        Assert.assertEquals("No matching country found for requested code [IU].", stateResponse.getCountryResponse().getMessages()[1]);
+        Assert.assertEquals("No matching country found for requested code [IU].",
+                Arrays.stream(stateResponse.getCountryResponse().getMessages()).findFirst().get());
     }
 }

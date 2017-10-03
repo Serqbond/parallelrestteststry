@@ -69,7 +69,7 @@ public class AllStatesTest extends FunctionalTest{
         LocalDateTime time = LocalDateTime.now();
 
         Assert.assertTrue("withSecond doesn't work. Expectd 5 , but was " + time.withSecond(5).getSecond(), time.withSecond(5).getSecond() == 5);
-      
+
         String timeString = "2019-10-03T00:00";
         LocalDateTime fromStr = LocalDateTime.parse(timeString);
         LocalDateTime newFromStr = fromStr.plusHours(13).plusMinutes(86).plusSeconds(96).minusYears(2);

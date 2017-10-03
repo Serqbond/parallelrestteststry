@@ -19,10 +19,10 @@ public class SearchTests extends FunctionalTest{
         System.out.println("searchByText " + Thread.currentThread().getName());
         CountryInfo expectedCountryInfo = new CountryInfo()
                 .setAbbr("AP")
-                .setArea("160205SKM")
-                .setCapital("Hyderabad, India")
+                .setArea("49506799SKM")
+                .setCapital("Hyderabad Amaravati")
                 .setCountry("IND")
-                .setLargest_city("Visakhapatnam")
+                .setLargest_city("Hyderabad Amaravati")
                 .setName("Andhra Pradesh");
 
         String response = get(basePath + "/search/IND?text=pradesh").body().asString();
@@ -49,10 +49,10 @@ public class SearchTests extends FunctionalTest{
         System.out.println("searchByTextWithDeserializer " + Thread.currentThread().getName());
         CountryInfo expectedCountryInfo = new CountryInfo()
                 .setAbbr("AP")
-                .setArea("160205SKM")
-                .setCapital("Hyderabad, India")
+                .setArea("49506799SKM")
+                .setCapital("Hyderabad Amaravati")
                 .setCountry("IND")
-                .setLargest_city("Visakhapatnam")
+                .setLargest_city("Hyderabad Amaravati")
                 .setName("Andhra Pradesh");
 
         String response = get(basePath + "/search/IND?text=pradesh").body().asString();
