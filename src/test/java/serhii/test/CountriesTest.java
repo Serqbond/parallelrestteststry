@@ -2,6 +2,7 @@ package serhii.test;
 
 import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,7 +43,10 @@ public class CountriesTest extends FunctionalTest{
                 .setAlpha3_code(alphaCode3)
                 ;
 
-        AllCountries countries  = get("/country/get/all").as(AllCountries.class);
+        String response = get("/country/get/all").body().asString();
+        Gson gson = new Gson();
+        AllCountries countries = gson.fromJson(response, AllCountries.class);
+
 
         Result actualAlgeria = Arrays.stream(countries.getRestResponse().getResult())
                 .filter(country -> country.getName().equalsIgnoreCase(countryName))

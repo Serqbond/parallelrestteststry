@@ -41,7 +41,9 @@ public class CountryListTest extends FunctionalTest {
                 .setAlpha3_code("DZA")
                 ;
 
-        AllCountries countries  = get(basePath + "/get/all").as(AllCountries.class);
+        String response = get(basePath + "/get/all").body().asString();
+        Gson gson = new Gson();
+        AllCountries countries = gson.fromJson(response, AllCountries.class);
 
         Result actualAlgeria = Arrays.stream(countries.getRestResponse().getResult())
                 .filter(country -> country.getName().contains("Algeria"))

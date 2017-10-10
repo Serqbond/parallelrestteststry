@@ -4,8 +4,6 @@ import businessentities.*;
 import com.google.gson.*;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.lang.reflect.Type;
 import java.util.Arrays;
 
 import static io.restassured.RestAssured.get;
@@ -76,7 +74,6 @@ public class SearchTests extends FunctionalTest{
         Assert.assertTrue(actualIndia.getCountry().equalsIgnoreCase(expectedCountryInfo.getCountry()));
         Assert.assertTrue(actualIndia.getLargestCity().equalsIgnoreCase(expectedCountryInfo.getLargestCity()));
         Assert.assertTrue(actualIndia.getName().equalsIgnoreCase(expectedCountryInfo.getName()));
-
     }
 }
 
