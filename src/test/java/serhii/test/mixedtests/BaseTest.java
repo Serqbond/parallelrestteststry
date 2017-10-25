@@ -1,5 +1,6 @@
 package serhii.test.mixedtests;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Before;
