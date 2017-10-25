@@ -52,7 +52,7 @@ public class FirstMixedTest extends BaseTest{
 
         AssertObjectsEquality.assertCountryInfoEquality(expectedCountryInfo, actualIndia);
 
-        context
+        new GoogleSearchContext(driver)
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("pear")
                 .shouldSeeTitle("pear - Пошук Google");
