@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import uihelpers.WebDriverService;
+import io.qameta.allure.Step;
 
 public class BaseTest {
 
@@ -19,6 +20,7 @@ public class BaseTest {
 
 
     @BeforeMethod
+    @Step("Init Driver")
     public void startTest(){
         webDriverService = new WebDriverService();
         driver = webDriverService.getDriver();
@@ -42,6 +44,7 @@ public class BaseTest {
     }
 
     @AfterMethod
+    @Step("Close Driver")
     public void finishTest(){
         webDriverService.stopDriver();
     }
