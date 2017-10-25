@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class FunctionalTest {
 
-    static RequestSpecification requestSpecification;
+    protected static RequestSpecification requestSpecification;
 
     @BeforeMethod
     public void setup() {

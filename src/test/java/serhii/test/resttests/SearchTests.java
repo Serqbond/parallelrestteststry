@@ -1,13 +1,15 @@
-package serhii.test;
+package serhii.test.resttests;
 
 import assertions.AssertObjectsEquality;
 import businessentities.*;
 import com.google.gson.*;
 import org.testng.annotations.Test;
+import serhii.test.FunctionalTest;
+
 import java.util.Arrays;
 import static io.restassured.RestAssured.given;
 
-public class SearchTests extends FunctionalTest{
+public class SearchTests extends FunctionalTest {
 
     private final String basePath = "/state";
 
