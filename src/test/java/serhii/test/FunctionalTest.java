@@ -1,21 +1,33 @@
 package serhii.test;
 
+import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.specification.RequestSpecification;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import io.restassured.RestAssured;
 
+import static io.restassured.RestAssured.given;
+
 public class FunctionalTest {
 
-    @BeforeClass
-    public static void setup() {
+    protected RequestSpecification requestSpecification;
+
+    @Before
+    public void setup() {
 //        System.setProperty("http.proxyHost", "localhost");
 //        System.setProperty("http.proxyPort", "8888");
         String baseHost = System.getenv("server.host");
-        System.out.println(baseHost);
 
         if(baseHost==null){
             baseHost = "http://services.groupkt.com";
         }
 
         RestAssured.baseURI = baseHost;
+
+        requestSpecification = new RequestSpecBuilder()
+                .log(LogDetail.HEADERS).addFilter(new AllureRestAssured()).build();
+        given(requestSpecification);
     }
 }
