@@ -6,6 +6,7 @@ import businessentities.StateResponse;
 import com.google.gson.Gson;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import uicontext.googlesearchcontext.GoogleSearchContext;
@@ -56,6 +57,7 @@ public class FirstMixedTest extends BaseTest{
                 .searchesFor("pear")
                 .shouldSeeTitle("pear - Пошук Google");
 
+//        @Step("Get response");
         response = get(basePath + "/search/IND?text=pradesh").body().asString();
         gson = new Gson();
         stateListResponse = gson.fromJson(response, StateResponse.class);
