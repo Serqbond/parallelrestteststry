@@ -4,9 +4,10 @@ import assertions.AssertObjectsEquality;
 import businessentities.CountryInfo;
 import businessentities.StateResponse;
 import com.google.gson.Gson;
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
-import io.qameta.allure.junit4.DisplayName;
+//import io.qameta.allure.Description;
+//import io.qameta.allure.Feature;
+//import io.qameta.allure.junit4.DisplayName;
+import ru.yandex.qatools.allure.annotations.*;
 import org.junit.Test;
 import uicontext.googlesearchcontext.GoogleSearchContext;
 
@@ -14,13 +15,13 @@ import java.util.Arrays;
 
 import static io.restassured.RestAssured.get;
 
-@Feature("Test Google search")
+@Title("Test Google search")
 public class FirstMixedTest extends BaseTest{
 
     private final String basePath = "/state";
 
     @Test
-    @DisplayName("Search for pear test")
+    @Title("Search for pear test")
     @Description("In this cool test we will test only cool features")
     public void searchForPearTest(){
 

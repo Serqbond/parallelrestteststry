@@ -1,6 +1,7 @@
 package uicontext.googlesearchcontext;
 
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
+import ru.yandex.qatools.allure.annotations.Step;
 import org.openqa.selenium.WebDriver;
 import pages.googlesearch.GoogleSearchPage;
 import uicontext.BaseContext;

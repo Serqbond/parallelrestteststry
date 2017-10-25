@@ -1,7 +1,8 @@
 package assertions;
 
 import businessentities.CountryInfo;
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
+import ru.yandex.qatools.allure.annotations.Step;
 import org.junit.Assert;
 
 public class AssertObjectsEquality {
