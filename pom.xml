@@ -106,10 +106,6 @@
                             <name>listener</name>
                             <value>io.qameta.allure.junit4.AllureJunit4</value>
                         </property>
-                        <property>
-                            <name>listener</name>
-                            <value>io.qameta.allure.restassured.AllureRestAssured</value>
-                        </property>
                     </properties>
                     <systemProperties>
                         <property>
