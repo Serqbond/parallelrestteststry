@@ -30,7 +30,6 @@ public class BaseTest {
 //        System.setProperty("http.proxyPort", "8888");
 
         String baseHost = System.getenv("server.host");
-        System.out.println(baseHost);
 
         if(baseHost==null){
             baseHost = "http://services.groupkt.com";

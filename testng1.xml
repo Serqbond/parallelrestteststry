@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="tag" parallel="classes" thread-count="4" >
+    <test name="Test1">
+        <classes>
+            <class name="serhii.test.mixedtests.FirstMixedTest"/>
+            <class name="serhii.test.mixedtests.SecondMixedTest"/>
+            <class name="serhii.test.resttests.AllCountriesTest"/>
+            <class name="serhii.test.resttests.AllStatesTest"/>
+            <class name="serhii.test.resttests.CountriesTest"/>
+            <class name="serhii.test.resttests.CountryListTest"/>
+            <class name="serhii.test.resttests.SearchTests"/>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
