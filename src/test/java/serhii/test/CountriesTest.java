@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 
 @RunWith(Parameterized.class)
 public class CountriesTest extends FunctionalTest{
@@ -43,10 +44,9 @@ public class CountriesTest extends FunctionalTest{
                 .setAlpha3_code(alphaCode3)
                 ;
 
-        String response = get("/country/get/all").body().asString();
+        String response = given(requestSpecification).get("/country/get/all").body().asString();
         Gson gson = new Gson();
         AllCountries countries = gson.fromJson(response, AllCountries.class);
-
 
         Result actualAlgeria = Arrays.stream(countries.getRestResponse().getResult())
                 .filter(country -> country.getName().equalsIgnoreCase(countryName))

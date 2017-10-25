@@ -14,6 +14,7 @@ import uicontext.googlesearchcontext.GoogleSearchContext;
 import java.util.Arrays;
 
 import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 
 @Feature("Search For Pear Test")
 @DisplayName("Search For Pear Test in rest")
@@ -43,7 +44,7 @@ public class FirstMixedTest extends BaseTest {
                 .searchesFor("pear")
                 .shouldSeeTitle("pear - Пошук Google");
 
-        String response = get(basePath + "/search/IND?text=pradesh").body().asString();
+        String response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
         Gson gson = new Gson();
         StateResponse stateListResponse = gson.fromJson(response, StateResponse.class);
 
@@ -59,7 +60,7 @@ public class FirstMixedTest extends BaseTest {
                 .searchesFor("pear")
                 .shouldSeeTitle("pear - Пошук Google");
 
-        response = get(basePath + "/search/IND?text=pradesh").body().asString();
+        response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
         gson = new Gson();
         stateListResponse = gson.fromJson(response, StateResponse.class);
 

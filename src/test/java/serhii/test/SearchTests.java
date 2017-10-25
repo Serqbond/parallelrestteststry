@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 
 public class SearchTests extends FunctionalTest{
 
@@ -23,7 +24,7 @@ public class SearchTests extends FunctionalTest{
                 .setLargest_city("Hyderabad Amaravati")
                 .setName("Andhra Pradesh");
 
-        String response = get(basePath + "/search/IND?text=pradesh").body().asString();
+        String response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
         Gson gson = new Gson();
         StateResponse stateListResponse = gson.fromJson(response, StateResponse.class);
 
@@ -53,7 +54,7 @@ public class SearchTests extends FunctionalTest{
                 .setLargest_city("Hyderabad Amaravati")
                 .setName("Andhra Pradesh");
 
-        String response = get(basePath + "/search/IND?text=pradesh").body().asString();
+        String response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(CountryInfo[].class, new CountryInfoDeserializer());

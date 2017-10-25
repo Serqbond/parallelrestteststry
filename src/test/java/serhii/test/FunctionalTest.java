@@ -12,12 +12,12 @@ import static io.restassured.RestAssured.given;
 
 public class FunctionalTest {
 
-    protected RequestSpecification requestSpecification;
+    static RequestSpecification requestSpecification;
 
-    @Before
-    public void setup() {
-//        System.setProperty("http.proxyHost", "localhost");
-//        System.setProperty("http.proxyPort", "8888");
+    @BeforeClass
+    public static void setup() {
+        System.setProperty("http.proxyHost", "localhost");
+        System.setProperty("http.proxyPort", "8888");
         String baseHost = System.getenv("server.host");
 
         if(baseHost==null){
@@ -27,7 +27,7 @@ public class FunctionalTest {
         RestAssured.baseURI = baseHost;
 
         requestSpecification = new RequestSpecBuilder()
-                .log(LogDetail.HEADERS).addFilter(new AllureRestAssured()).build();
-        given(requestSpecification);
+                //.log(LogDetail.HEADERS)
+                .addFilter(new AllureRestAssured()).build();
     }
 }

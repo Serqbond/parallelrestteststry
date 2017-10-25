@@ -19,6 +19,7 @@ public class BaseTest {
     protected String baseUrl;
     protected RequestSpecification requestSpecification;
 
+
     @Before
     public void startTest(){
         webDriverService = new WebDriverService();
@@ -38,8 +39,8 @@ public class BaseTest {
         RestAssured.baseURI = baseHost;
 
         requestSpecification = new RequestSpecBuilder()
-                .log(LogDetail.HEADERS).addFilter(new AllureRestAssured()).build();
-        given(requestSpecification);
+                //.log(LogDetail.HEADERS)
+                .addFilter(new AllureRestAssured()).build();
     }
 
     @After

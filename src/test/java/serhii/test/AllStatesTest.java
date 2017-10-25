@@ -4,7 +4,9 @@ import businessentities.CountryInfo;
 import businessentities.CountryInfoDeserializer;
 import businessentities.StateResponse;
 import com.google.gson.*;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,6 +16,7 @@ import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 public class AllStatesTest extends FunctionalTest{
@@ -23,13 +26,13 @@ public class AllStatesTest extends FunctionalTest{
     @Test
     public void getStatusCodeTestCase(){
         System.out.println("getStatusCodeTestCase " + Thread.currentThread().getName());
-        get(basePath + "/get/IND/UP").then().statusCode(200);
+        given(requestSpecification).get(basePath + "/get/IND/UP").then().statusCode(200);
     }
 
     @Test
     public void getCapitalWorks(){
         System.out.println("getCapitalWorks " + Thread.currentThread().getName());
-        get(basePath + "/get/IND/UP").then()
+        given(requestSpecification).get(basePath + "/get/IND/UP").then()
                 .body("RestResponse.result.capital", is("Lucknow"));
 
     }
@@ -37,7 +40,7 @@ public class AllStatesTest extends FunctionalTest{
     @Test
     public void getJsonBody(){
         System.out.println("getJsonBody " + Thread.currentThread().getName());
-        String response = get(basePath + "/get/IND/UP").body().asString();
+        String response = given(requestSpecification).get(basePath + "/get/IND/UP").body().asString();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(CountryInfo[].class, new CountryInfoDeserializer());
@@ -49,7 +52,7 @@ public class AllStatesTest extends FunctionalTest{
     @Test
     public void getJsonBodyAndOtherHost(){
         System.out.println("getJsonBodyAndOtherHost " + Thread.currentThread().getName());
-        String response = get(basePath + "/get/IND/UP").body().asString();
+        String response = given(requestSpecification).get(basePath + "/get/IND/UP").body().asString();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(CountryInfo[].class, new CountryInfoDeserializer());
@@ -59,7 +62,9 @@ public class AllStatesTest extends FunctionalTest{
 
         RestAssured rest =  new RestAssured();
         rest.baseURI = "http://api.openweathermap.org";
-        rest.get("/data/2.5/weather?lat=35&lon=139").then().statusCode(401);
+        rest.given(new RequestSpecBuilder()
+                .addFilter(new AllureRestAssured()).build())
+                .get("/data/2.5/weather?lat=35&lon=139").then().statusCode(401);
     }
 
     @Test

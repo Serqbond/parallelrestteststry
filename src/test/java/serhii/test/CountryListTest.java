@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 
 public class CountryListTest extends FunctionalTest {
 
@@ -19,7 +20,7 @@ public class CountryListTest extends FunctionalTest {
     public void listContainsUkraine(){
         System.out.println("listContainsUkraine " + Thread.currentThread().getName());
         Gson gson = new Gson();
-        String response = get(basePath + "/get/all").body().asString();
+        String response = given(requestSpecification).get(basePath + "/get/all").body().asString();
 
         AllCountries stateListResponse = gson.fromJson(response, AllCountries.class);
 
@@ -41,7 +42,7 @@ public class CountryListTest extends FunctionalTest {
                 .setAlpha3_code("DZA")
                 ;
 
-        String response = get(basePath + "/get/all").body().asString();
+        String response = given(requestSpecification).get(basePath + "/get/all").body().asString();
         Gson gson = new Gson();
         AllCountries countries = gson.fromJson(response, AllCountries.class);
 
