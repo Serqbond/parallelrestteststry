@@ -7,15 +7,11 @@ import com.google.gson.*;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -23,7 +19,7 @@ public class AllStatesTest extends FunctionalTest{
 
     private final String basePath = "/state";
 
-    @Test
+    @Test(description = "Get Status Code Test Case")
     public void getStatusCodeTestCase(){
         System.out.println("getStatusCodeTestCase " + Thread.currentThread().getName());
         given(requestSpecification).get(basePath + "/get/IND/UP").then().statusCode(200);
@@ -73,12 +69,12 @@ public class AllStatesTest extends FunctionalTest{
 
         LocalDateTime time = LocalDateTime.now();
 
-        Assert.assertTrue("withSecond doesn't work. Expectd 5 , but was " + time.withSecond(5).getSecond(), time.withSecond(5).getSecond() == 5);
+        Assert.assertTrue(time.withSecond(5).getSecond() == 5, "withSecond doesn't work. Expectd 5 , but was " + time.withSecond(5).getSecond());
 
         String timeString = "2019-10-03T00:00";
         LocalDateTime fromStr = LocalDateTime.parse(timeString);
         LocalDateTime newFromStr = fromStr.plusHours(13).plusMinutes(86).plusSeconds(96).minusYears(2);
 
-        Assert.assertFalse("Current year - "  + newFromStr.getYear() + " is not a leap year!" , newFromStr.toLocalDate().isLeapYear());
+        Assert.assertFalse(newFromStr.toLocalDate().isLeapYear(), "Current year - "  + newFromStr.getYear() + " is not a leap year!" );
     }
 }

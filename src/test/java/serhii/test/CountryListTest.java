@@ -4,8 +4,8 @@ import businessentities.StateResponse;
 import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
 import com.google.gson.Gson;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
@@ -24,12 +24,13 @@ public class CountryListTest extends FunctionalTest {
 
         AllCountries stateListResponse = gson.fromJson(response, AllCountries.class);
 
-        Assert.assertEquals("UA", Arrays.stream(stateListResponse.getRestResponse().getResult())
+        Assert.assertEquals(Arrays.stream(stateListResponse.getRestResponse().getResult())
                 .filter(country -> country.getName().contains("Ukraine"))
                 .findFirst()
                 .get()
-                .getAlpha2_code()
-        );
+                .getAlpha2_code(),
+                "UA"
+                );
     }
 
     @Test
@@ -52,6 +53,6 @@ public class CountryListTest extends FunctionalTest {
                 .get()
                 ;
 
-        Assert.assertEquals(expectedAlgeria.toString(), actualAlgeria.toString());
+        Assert.assertEquals(actualAlgeria.toString(), expectedAlgeria.toString());
     }
 }

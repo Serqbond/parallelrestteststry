@@ -2,15 +2,11 @@ package serhii.test;
 
 import businessentities.StateResponse;
 import com.google.gson.Gson;
-import io.restassured.RestAssured;
-import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
-import org.junit.Test;
-import static io.restassured.RestAssured.get;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.options;
 import static org.hamcrest.CoreMatchers.is;
-import org.junit.runner.*;
 
 import java.util.Arrays;
 

@@ -1,12 +1,10 @@
 package serhii.test;
 
+import assertions.AssertObjectsEquality;
 import businessentities.*;
 import com.google.gson.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import java.util.Arrays;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 public class SearchTests extends FunctionalTest{
@@ -33,14 +31,7 @@ public class SearchTests extends FunctionalTest{
                 .findFirst()
                 .get();
 
-        Assert.assertTrue("Capitals are different. Expected " + expectedCountryInfo.getCapital() + " Actual: " + actualIndia.getCapital(),
-                actualIndia.getCapital().equalsIgnoreCase(expectedCountryInfo.getCapital()));
-        Assert.assertTrue(actualIndia.getAbbr().equalsIgnoreCase(expectedCountryInfo.getAbbr()));
-        Assert.assertTrue("Areas are different. Expected " + expectedCountryInfo.getArea() + " Actual: " + actualIndia.getArea(),
-                actualIndia.getArea().equalsIgnoreCase(expectedCountryInfo.getArea()));
-        Assert.assertTrue(actualIndia.getCountry().equalsIgnoreCase(expectedCountryInfo.getCountry()));
-        Assert.assertTrue(actualIndia.getLargestCity().equalsIgnoreCase(expectedCountryInfo.getLargestCity()));
-        Assert.assertTrue(actualIndia.getName().equalsIgnoreCase(expectedCountryInfo.getName()));
+        AssertObjectsEquality.assertCountryInfoEquality(expectedCountryInfo, actualIndia);
     }
 
     @Test
@@ -66,15 +57,7 @@ public class SearchTests extends FunctionalTest{
                 .findFirst()
                 .get();
 
-        Assert.assertTrue(stateResponse.getCountryResponse().getCountryInfo().length == 5);
-        Assert.assertTrue("Capitals are different. Expected " + expectedCountryInfo.getCapital() + " Actual: " + actualIndia.getCapital(),
-                actualIndia.getCapital().equalsIgnoreCase(expectedCountryInfo.getCapital()));
-        Assert.assertTrue(actualIndia.getAbbr().equalsIgnoreCase(expectedCountryInfo.getAbbr()));
-        Assert.assertTrue("Areas are different. Expected " + expectedCountryInfo.getArea() + " Actual: " + actualIndia.getArea(),
-                actualIndia.getArea().equalsIgnoreCase(expectedCountryInfo.getArea()));
-        Assert.assertTrue(actualIndia.getCountry().equalsIgnoreCase(expectedCountryInfo.getCountry()));
-        Assert.assertTrue(actualIndia.getLargestCity().equalsIgnoreCase(expectedCountryInfo.getLargestCity()));
-        Assert.assertTrue(actualIndia.getName().equalsIgnoreCase(expectedCountryInfo.getName()));
+        AssertObjectsEquality.assertCountryInfoEquality(expectedCountryInfo, actualIndia);
     }
 }
 

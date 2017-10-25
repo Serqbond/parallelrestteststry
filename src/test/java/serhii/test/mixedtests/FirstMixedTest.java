@@ -6,24 +6,19 @@ import businessentities.StateResponse;
 import com.google.gson.Gson;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import serhii.test.BaseTest;
 import uicontext.googlesearchcontext.GoogleSearchContext;
-
 import java.util.Arrays;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
+@Test(suiteName = "First Mixed Test", description = "First Mixed Test")
 @Feature("Search For Pear Test")
-@DisplayName("Search For Pear Test in rest")
 public class FirstMixedTest extends BaseTest {
 
     private final String basePath = "/state";
 
-    @Test
-    @DisplayName("Search For Pear Test")
+    @Test(description = "Search For Pear Test")
     @Description("In this cool test we will test only cool features")
     public void searchForPearTest(){
 

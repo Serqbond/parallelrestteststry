@@ -5,12 +5,10 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import uihelpers.WebDriverService;
-
-import static io.restassured.RestAssured.given;
 
 public class BaseTest {
 
@@ -20,7 +18,7 @@ public class BaseTest {
     protected RequestSpecification requestSpecification;
 
 
-    @Before
+    @BeforeMethod
     public void startTest(){
         webDriverService = new WebDriverService();
         driver = webDriverService.getDriver();
@@ -43,7 +41,7 @@ public class BaseTest {
                 .addFilter(new AllureRestAssured()).build();
     }
 
-    @After
+    @AfterMethod
     public void finishTest(){
         webDriverService.stopDriver();
     }
