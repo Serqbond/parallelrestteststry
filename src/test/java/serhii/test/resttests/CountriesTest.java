@@ -3,18 +3,16 @@ package serhii.test.resttests;
 import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
 import com.google.gson.Gson;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import serhii.test.FunctionalTest;
-
 import java.util.Arrays;
-import java.util.Collection;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
+@Test(suiteName = "Countries tests")
+@Feature("Countries")
 public class CountriesTest extends FunctionalTest {
 
     @DataProvider(name = "countries")

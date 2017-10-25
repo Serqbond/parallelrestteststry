@@ -3,12 +3,15 @@ package serhii.test.resttests;
 import assertions.AssertObjectsEquality;
 import businessentities.*;
 import com.google.gson.*;
+import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 import serhii.test.FunctionalTest;
 
 import java.util.Arrays;
 import static io.restassured.RestAssured.given;
 
+@Test(suiteName = "Search")
+@Feature("Search")
 public class SearchTests extends FunctionalTest {
 
     private final String basePath = "/state";

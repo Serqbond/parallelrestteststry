@@ -2,6 +2,7 @@ package serhii.test.resttests;
 
 import businessentities.StateResponse;
 import com.google.gson.Gson;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import serhii.test.FunctionalTest;
@@ -11,6 +12,8 @@ import static org.hamcrest.CoreMatchers.is;
 
 import java.util.Arrays;
 
+@Test(suiteName = "All countries")
+@Feature("Countries")
 public class AllCountriesTest extends FunctionalTest {
 
     private final String basePath = "/country";

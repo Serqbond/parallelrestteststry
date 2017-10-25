@@ -1,18 +1,18 @@
 package serhii.test.resttests;
 
-import businessentities.StateResponse;
 import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
 import com.google.gson.Gson;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import serhii.test.FunctionalTest;
 
 import java.util.Arrays;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
+@Test(suiteName = "Country list")
+@Feature("Countries")
 public class CountryListTest extends FunctionalTest {
 
     private final String basePath = "/country";
