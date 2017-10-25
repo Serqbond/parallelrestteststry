@@ -76,6 +76,9 @@
         <aspectj.version>1.8.10</aspectj.version>
         <parallel>classes</parallel>
         <count>4</count>
+        <allure.results.directory>
+            ${project.build.directory}/allure-results
+        </allure.results.directory>
     </properties>
 
     <build>
@@ -98,16 +101,11 @@
                     <parallel>${parallel}</parallel>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng1.xml</suiteXmlFile>
-                        <suiteXmlFile>testng2.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
                          -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <properties>
-                        <property>
-                            <name>suitethreadpoolsize</name>
-                            <value>4</value>
-                        </property>
                         <property>
                             <name>usedefaultlisteners</name>
                             <value>false</value>
@@ -139,6 +137,9 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
+                <configuration>
+                    <resultsDirectory>${allure.results.directory}</resultsDirectory>
+                </configuration>
                 <version>2.8</version>
             </plugin>
         </plugins>
