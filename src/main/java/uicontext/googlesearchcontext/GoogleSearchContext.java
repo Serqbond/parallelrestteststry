@@ -1,6 +1,9 @@
 package uicontext.googlesearchcontext;
 
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import pages.googlesearch.GoogleSearchPage;
 import uicontext.BaseContext;
@@ -18,11 +21,13 @@ public class GoogleSearchContext extends BaseContext {
     @Step("Open search page")
     public GoogleSearchContext opensTheSearchApp(String baseUrl) {
         googleSearchPage.open(baseUrl);
+        saveScreenshot();
         return this;
     }
 
     @Step("Enter search text")
     public GoogleSearchContext searchesFor(String searchTerm) {
+        saveScreenshot();
         googleSearchPage.enterSearchTerm(searchTerm);
         return this;
     }
@@ -30,6 +35,12 @@ public class GoogleSearchContext extends BaseContext {
     @Step("Verify expected result")
     public GoogleSearchContext shouldSeeTitle(String title) {
         assertThat(googleSearchPage.getTitle(), is(equalTo(title)));
+        saveScreenshot();
         return this;
+    }
+
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public byte[] saveScreenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
