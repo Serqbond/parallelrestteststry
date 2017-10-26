@@ -21,23 +21,26 @@ public class GoogleSearchContext extends BaseContext {
     @Step("Open search page")
     public GoogleSearchContext opensTheSearchApp(String baseUrl) {
         googleSearchPage.open(baseUrl);
+        makeScreenshot("hg");
         return this;
     }
 
     @Step("Enter search text")
     public GoogleSearchContext searchesFor(String searchTerm) {
         googleSearchPage.enterSearchTerm(searchTerm);
+        makeScreenshot("hg");
         return this;
     }
 
     @Step("Verify expected result")
     public GoogleSearchContext shouldSeeTitle(String title) {
         assertThat(googleSearchPage.getTitle(), is(equalTo(title)));
+        makeScreenshot("hg");
         return this;
     }
 
-    @Attachment(value = "Page screenshot", type = "image/png")
-    public byte[] saveScreenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    @Attachment(value = "{0}", type = "image/png")
+    public byte[] makeScreenshot(String name) {
+        return ((TakesScreenshot) googleSearchPage.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }
