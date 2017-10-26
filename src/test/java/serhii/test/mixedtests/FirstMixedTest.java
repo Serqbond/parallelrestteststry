@@ -12,11 +12,9 @@ import serhii.test.BaseTest;
 import uicontext.googlesearchcontext.GoogleSearchContext;
 
 import java.util.Arrays;
-
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
-@Feature("Search For Pear Test")
+@Feature("Search For Test")
 @DisplayName("Search For Pear Test in rest")
 public class FirstMixedTest extends BaseTest {
 
