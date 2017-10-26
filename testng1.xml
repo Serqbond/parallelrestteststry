@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="tag" parallel="classes" thread-count="10" >
-    <test name="Test1">
+<suite name="Main Suit" parallel="classes" thread-count="10" >
+    <test name="Test run 1">
         <classes>
             <class name="serhii.test.mixedtests.FirstMixedTest"/>
             <class name="serhii.test.mixedtests.SecondMixedTest"/>

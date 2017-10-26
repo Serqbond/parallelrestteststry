@@ -25,7 +25,7 @@ public class ThirdMixedTest extends BaseTest{
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("banana")
-                .shouldSeeTitle("banana - Поиск в Google");
+                .shouldSeeTitle("banana - Пошук Google");
 
         String response = given(requestSpecification).get(basePath + "/get/all").body().asString();
         Gson gson = new Gson();

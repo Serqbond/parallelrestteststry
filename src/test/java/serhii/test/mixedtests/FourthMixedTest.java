@@ -25,7 +25,7 @@ public class FourthMixedTest extends BaseTest{
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("Piano")
-                .shouldSeeTitle("Piano - Поиск в Google");
+                .shouldSeeTitle("Piano - Пошук Google");
 
         String response = given(requestSpecification).get(basePath + "/get/all").body().asString();
         Gson gson = new Gson();

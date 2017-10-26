@@ -37,7 +37,7 @@ public class FirstMixedTest extends BaseTest {
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("pear")
-                .shouldSeeTitle("pear - Поиск в Google");
+                .shouldSeeTitle("pear - Пошук Google");
 
         String response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
         Gson gson = new Gson();
@@ -53,7 +53,7 @@ public class FirstMixedTest extends BaseTest {
         new GoogleSearchContext(driver)
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("pear")
-                .shouldSeeTitle("pear - Поиск в Google");
+                .shouldSeeTitle("pear - Пошук Google");
 
         response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
         gson = new Gson();

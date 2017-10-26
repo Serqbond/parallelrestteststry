@@ -28,7 +28,7 @@ public class SecondMixedTest extends BaseTest{
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("banana")
-                .shouldSeeTitle("banana - Поиск в Google");
+                .shouldSeeTitle("banana - Пошук Google");
 
         String response = given(requestSpecification).get(basePath + "/get/all").body().asString();
         Gson gson = new Gson();
@@ -44,7 +44,7 @@ public class SecondMixedTest extends BaseTest{
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("banana")
-                .shouldSeeTitle("banana - Поиск в Google");
+                .shouldSeeTitle("banana - Пошук Google");
     }
 
     @Test(description = "Search For Banana Test")
@@ -57,7 +57,7 @@ public class SecondMixedTest extends BaseTest{
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("apple")
-                .shouldSeeTitle("apple - Поиск в Google");
+                .shouldSeeTitle("apple - Пошук Google");
 
         String response = given(requestSpecification).get(basePath + "/get/all").body().asString();
         Gson gson = new Gson();
@@ -73,6 +73,6 @@ public class SecondMixedTest extends BaseTest{
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("apple")
-                .shouldSeeTitle("apple - Поиск в Google");
+                .shouldSeeTitle("apple - Пошук Google");
     }
 }
