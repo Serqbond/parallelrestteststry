@@ -21,13 +21,11 @@ public class GoogleSearchContext extends BaseContext {
     @Step("Open search page")
     public GoogleSearchContext opensTheSearchApp(String baseUrl) {
         googleSearchPage.open(baseUrl);
-        saveScreenshot();
         return this;
     }
 
     @Step("Enter search text")
     public GoogleSearchContext searchesFor(String searchTerm) {
-        saveScreenshot();
         googleSearchPage.enterSearchTerm(searchTerm);
         return this;
     }
@@ -35,7 +33,6 @@ public class GoogleSearchContext extends BaseContext {
     @Step("Verify expected result")
     public GoogleSearchContext shouldSeeTitle(String title) {
         assertThat(googleSearchPage.getTitle(), is(equalTo(title)));
-        saveScreenshot();
         return this;
     }
 
