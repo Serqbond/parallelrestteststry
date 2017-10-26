@@ -3,10 +3,10 @@
 <suite name="tag" parallel="classes" thread-count="10" >
     <test name="Test1">
         <classes>
-            <!--<class name="serhii.test.mixedtests.FirstMixedTest"/>-->
-            <!--<class name="serhii.test.mixedtests.SecondMixedTest"/>-->
-            <!--<class name="serhii.test.mixedtests.ThirdMixedTest"/>-->
-            <!--<class name="serhii.test.mixedtests.FourthMixedTest"/>-->
+            <class name="serhii.test.mixedtests.FirstMixedTest"/>
+            <class name="serhii.test.mixedtests.SecondMixedTest"/>
+            <class name="serhii.test.mixedtests.ThirdMixedTest"/>
+            <class name="serhii.test.mixedtests.FourthMixedTest"/>
             <class name="serhii.test.resttests.AllCountriesTest"/>
             <class name="serhii.test.resttests.AllStatesTest"/>
             <class name="serhii.test.resttests.CountriesTest"/>
