@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Main Suit" parallel="classes" thread-count="10" >
-    <test name="Test run 1">
+<suite name="Main suit" parallel="classes" thread-count="10" >
+    <test name="UI tests">
         <classes>
             <class name="serhii.test.mixedtests.FirstMixedTest"/>
             <class name="serhii.test.mixedtests.SecondMixedTest"/>
             <class name="serhii.test.mixedtests.ThirdMixedTest"/>
             <class name="serhii.test.mixedtests.FourthMixedTest"/>
+        </classes>
+    </test>
+    <test name="REST tests">
+        <classes>
             <class name="serhii.test.resttests.AllCountriesTest"/>
             <class name="serhii.test.resttests.AllStatesTest"/>
             <class name="serhii.test.resttests.CountriesTest"/>
@@ -14,4 +18,4 @@
             <class name="serhii.test.resttests.SearchTests"/>
         </classes>
     </test>
-</suite> <!-- Suite -->
+</suite>

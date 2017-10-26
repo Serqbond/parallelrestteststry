@@ -47,7 +47,7 @@ public class SecondMixedTest extends BaseTest{
                 .shouldSeeTitle("banana - Пошук Google");
     }
 
-    @Test(description = "Search For Banana Test")
+    @Test(description = "Search For Apple Test")
     public void searchForAppleTest(){
 
         System.out.println("searchForBananaTest with REST " + Thread.currentThread().getName());

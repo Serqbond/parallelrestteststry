@@ -75,7 +75,7 @@
         <java.version>1.8</java.version>
         <aspectj.version>1.8.10</aspectj.version>
         <parallel>classes</parallel>
-        <count>4</count>
+        <count>10</count>
         <allure.results.directory>
             ${project.build.directory}/allure-results
         </allure.results.directory>
