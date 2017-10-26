@@ -1,17 +1,19 @@
-package serhii.test;
+package serhii.test.resttests;
 
 import businessentities.*;
 import com.google.gson.*;
 import io.qameta.allure.Feature;
 import org.junit.Assert;
 import org.junit.Test;
+import serhii.test.FunctionalTest;
+
 import java.util.Arrays;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 @Feature("REST Tests")
-public class SearchTests extends FunctionalTest{
+public class SearchTests extends FunctionalTest {
 
     private final String basePath = "/state";
 

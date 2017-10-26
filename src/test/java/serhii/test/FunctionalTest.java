@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 
 public class FunctionalTest {
 
-    static RequestSpecification requestSpecification;
+    protected static RequestSpecification requestSpecification;
 
     @BeforeClass
     public static void setup() {
