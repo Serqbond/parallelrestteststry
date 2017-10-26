@@ -19,4 +19,9 @@ public class AssertObjectsEquality {
         Assert.assertTrue(actual.getLargestCity().equalsIgnoreCase(expected.getLargestCity()));
         Assert.assertTrue(actual.getName().equalsIgnoreCase(expected.getName()));
     }
+
+    @Step("Validate Country string represantation")
+    public static void assertCountryStringEquality(String actual, String expected){
+        Assert.assertEquals(actual, expected);
+    }
 }

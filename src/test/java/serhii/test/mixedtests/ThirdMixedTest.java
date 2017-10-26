@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 public class ThirdMixedTest extends BaseTest{
     private final String basePath = "/country";
 
-    @Test(description = "Search For Banana Test 2")
+    @Test(description = "Search For Computer Test")
     public void searchForBananaTest2() {
 
         System.out.println("searchForBananaTest2 with REST " + Thread.currentThread().getName());
@@ -24,8 +24,8 @@ public class ThirdMixedTest extends BaseTest{
 
         context
                 .opensTheSearchApp(baseUrl)
-                .searchesFor("banana")
-                .shouldSeeTitle("banana - Пошук Google");
+                .searchesFor("computer")
+                .shouldSeeTitle("computer - Пошук Google");
 
         String response = given(requestSpecification).get(basePath + "/get/all").body().asString();
         Gson gson = new Gson();

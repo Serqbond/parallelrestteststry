@@ -1,5 +1,6 @@
 package serhii.test.resttests;
 
+import assertions.AssertObjectsEquality;
 import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
 import com.google.gson.Gson;
@@ -54,6 +55,6 @@ public class CountryListTest extends FunctionalTest {
                 .get()
                 ;
 
-        Assert.assertEquals(actualAlgeria.toString(), expectedAlgeria.toString());
+        AssertObjectsEquality.assertCountryStringEquality(actualAlgeria.toString(), expectedAlgeria.toString());
     }
 }
