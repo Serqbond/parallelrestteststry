@@ -1,11 +1,13 @@
 package serhii.test.resttests;
 
+import assertions.AssertObjectsEquality;
 import businessentities.*;
 import com.google.gson.*;
 import io.qameta.allure.Feature;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
-import serhii.test.FunctionalTest;
+import serhii.test.BaseRestTest;
 
 import java.util.Arrays;
 
@@ -13,11 +15,12 @@ import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 @Feature("REST Tests")
-public class SearchTests extends FunctionalTest {
+public class SearchTests extends BaseRestTest {
 
     private final String basePath = "/state";
 
     @Test
+    @DisplayName("Search By Text")
     public void searchByText(){
         System.out.println("searchByText " + Thread.currentThread().getName());
         CountryInfo expectedCountryInfo = new CountryInfo()
@@ -37,19 +40,14 @@ public class SearchTests extends FunctionalTest {
                 .findFirst()
                 .get();
 
-        Assert.assertTrue("Capitals are different. Expected " + expectedCountryInfo.getCapital() + " Actual: " + actualIndia.getCapital(),
-                actualIndia.getCapital().equalsIgnoreCase(expectedCountryInfo.getCapital()));
-        Assert.assertTrue(actualIndia.getAbbr().equalsIgnoreCase(expectedCountryInfo.getAbbr()));
-        Assert.assertTrue("Areas are different. Expected " + expectedCountryInfo.getArea() + " Actual: " + actualIndia.getArea(),
-                actualIndia.getArea().equalsIgnoreCase(expectedCountryInfo.getArea()));
-        Assert.assertTrue(actualIndia.getCountry().equalsIgnoreCase(expectedCountryInfo.getCountry()));
-        Assert.assertTrue(actualIndia.getLargestCity().equalsIgnoreCase(expectedCountryInfo.getLargestCity()));
-        Assert.assertTrue(actualIndia.getName().equalsIgnoreCase(expectedCountryInfo.getName()));
+        AssertObjectsEquality.assertCountryInfoEquality(expectedCountryInfo, actualIndia);
     }
 
     @Test
+    @DisplayName("Search By Text With Deserializer")
     public void searchByTextWithDeserializer(){
         System.out.println("searchByTextWithDeserializer " + Thread.currentThread().getName());
+
         CountryInfo expectedCountryInfo = new CountryInfo()
                 .setAbbr("AP")
                 .setArea("49506799SKM")
@@ -70,15 +68,7 @@ public class SearchTests extends FunctionalTest {
                 .findFirst()
                 .get();
 
-        Assert.assertTrue(stateResponse.getCountryResponse().getCountryInfo().length == 5);
-        Assert.assertTrue("Capitals are different. Expected " + expectedCountryInfo.getCapital() + " Actual: " + actualIndia.getCapital(),
-                actualIndia.getCapital().equalsIgnoreCase(expectedCountryInfo.getCapital()));
-        Assert.assertTrue(actualIndia.getAbbr().equalsIgnoreCase(expectedCountryInfo.getAbbr()));
-        Assert.assertTrue("Areas are different. Expected " + expectedCountryInfo.getArea() + " Actual: " + actualIndia.getArea(),
-                actualIndia.getArea().equalsIgnoreCase(expectedCountryInfo.getArea()));
-        Assert.assertTrue(actualIndia.getCountry().equalsIgnoreCase(expectedCountryInfo.getCountry()));
-        Assert.assertTrue(actualIndia.getLargestCity().equalsIgnoreCase(expectedCountryInfo.getLargestCity()));
-        Assert.assertTrue(actualIndia.getName().equalsIgnoreCase(expectedCountryInfo.getName()));
+        AssertObjectsEquality.assertCountryInfoEquality(expectedCountryInfo, actualIndia);
     }
 }
 

@@ -3,22 +3,18 @@ package serhii.test;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import uihelpers.WebDriverService;
 
-import static io.restassured.RestAssured.given;
-
-public class BaseTest {
+public class BaseUITest {
 
     protected WebDriver driver;
     private WebDriverService webDriverService;
     protected String baseUrl;
     protected RequestSpecification requestSpecification;
-
 
     @Before
     public void startTest(){
@@ -30,7 +26,6 @@ public class BaseTest {
 //        System.setProperty("http.proxyPort", "8888");
 
         String baseHost = System.getenv("server.host");
-        System.out.println(baseHost);
 
         if(baseHost==null){
             baseHost = "http://services.groupkt.com";

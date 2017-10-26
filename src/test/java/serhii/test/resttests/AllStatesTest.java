@@ -5,34 +5,34 @@ import businessentities.CountryInfoDeserializer;
 import businessentities.StateResponse;
 import com.google.gson.*;
 import io.qameta.allure.Feature;
+import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import org.junit.Assert;
 import org.junit.Test;
-import serhii.test.FunctionalTest;
+import serhii.test.BaseRestTest;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 @Feature("REST Tests")
-public class AllStatesTest extends FunctionalTest {
+public class AllStatesTest extends BaseRestTest {
 
     private final String basePath = "/state";
 
     @Test
+    @DisplayName("Get Status Code Test Case")
     public void getStatusCodeTestCase(){
         System.out.println("getStatusCodeTestCase " + Thread.currentThread().getName());
         given(requestSpecification).get(basePath + "/get/IND/UP").then().statusCode(200);
     }
 
     @Test
+    @DisplayName("Get Capital Works")
     public void getCapitalWorks(){
         System.out.println("getCapitalWorks " + Thread.currentThread().getName());
         given(requestSpecification).get(basePath + "/get/IND/UP").then()
@@ -41,6 +41,7 @@ public class AllStatesTest extends FunctionalTest {
     }
 
     @Test
+    @DisplayName("Get Json Body")
     public void getJsonBody(){
         System.out.println("getJsonBody " + Thread.currentThread().getName());
         String response = given(requestSpecification).get(basePath + "/get/IND/UP").body().asString();
@@ -53,6 +54,7 @@ public class AllStatesTest extends FunctionalTest {
     }
 
     @Test
+    @DisplayName("Get Json Body And Other Host")
     public void getJsonBodyAndOtherHost(){
         System.out.println("getJsonBodyAndOtherHost " + Thread.currentThread().getName());
         String response = given(requestSpecification).get(basePath + "/get/IND/UP").body().asString();
@@ -71,12 +73,13 @@ public class AllStatesTest extends FunctionalTest {
     }
 
     @Test
+    @DisplayName("Play Date Time")
     public void playDateTime(){
         System.out.println("playDateTime " + Thread.currentThread().getName());
 
         LocalDateTime time = LocalDateTime.now();
 
-        Assert.assertTrue("withSecond doesn't work. Expectd 5 , but was " + time.withSecond(5).getSecond(), time.withSecond(5).getSecond() == 5);
+        Assert.assertTrue("withSecond doesn't work. Expected 5 , but was " + time.withSecond(5).getSecond(), time.withSecond(5).getSecond() == 5);
 
         String timeString = "2019-10-03T00:00";
         LocalDateTime fromStr = LocalDateTime.parse(timeString);

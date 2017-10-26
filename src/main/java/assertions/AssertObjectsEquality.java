@@ -1,6 +1,7 @@
 package assertions;
 
 import businessentities.CountryInfo;
+import businessentities.serhii.be.allcountries.Result;
 import io.qameta.allure.Step;
 import org.junit.Assert;
 
@@ -16,5 +17,10 @@ public class AssertObjectsEquality {
         Assert.assertTrue(actual.getCountry().equalsIgnoreCase(expected.getCountry()));
         Assert.assertTrue(actual.getLargestCity().equalsIgnoreCase(expected.getLargestCity()));
         Assert.assertTrue(actual.getName().equalsIgnoreCase(expected.getName()));
+    }
+
+    @Step("Validate Result")
+    public static void assertResultObjectsEquality(Result actual, Result expected){
+        Assert.assertEquals(actual.toString(), expected.toString());
     }
 }

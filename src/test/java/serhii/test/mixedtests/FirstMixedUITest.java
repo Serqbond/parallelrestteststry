@@ -8,7 +8,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import serhii.test.BaseTest;
+import serhii.test.BaseUITest;
 import uicontext.googlesearchcontext.GoogleSearchContext;
 
 import java.util.Arrays;
@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 
 @Feature("Search For Test")
 @DisplayName("Search For Pear Test in rest")
-public class FirstMixedTest extends BaseTest {
+public class FirstMixedUITest extends BaseUITest {
 
     private final String basePath = "/state";
 

@@ -4,11 +4,12 @@ import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
 import com.google.gson.Gson;
 import io.qameta.allure.Feature;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import serhii.test.FunctionalTest;
+import serhii.test.BaseRestTest;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -18,7 +19,7 @@ import static io.restassured.RestAssured.given;
 
 @Feature("REST Tests")
 @RunWith(Parameterized.class)
-public class CountriesTest extends FunctionalTest {
+public class CountriesTest extends BaseRestTest {
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
@@ -38,8 +39,9 @@ public class CountriesTest extends FunctionalTest {
     }
 
     @Test
+    @DisplayName("List Contains Specified Country Result")
     public void listContainsSpecifiedCountryResult(){
-        System.out.println("listContains " + countryName + Thread.currentThread().getName());
+        System.out.println("listContainsSpecifiedCountryResult " + countryName + Thread.currentThread().getName());
 
         Result expectedAlgeria = new Result()
                 .setName(countryName)

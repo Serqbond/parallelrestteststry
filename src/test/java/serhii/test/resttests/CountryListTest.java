@@ -1,13 +1,14 @@
 package serhii.test.resttests;
 
-import businessentities.StateResponse;
+import assertions.AssertObjectsEquality;
 import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
 import com.google.gson.Gson;
 import io.qameta.allure.Feature;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
-import serhii.test.FunctionalTest;
+import serhii.test.BaseRestTest;
 
 import java.util.Arrays;
 
@@ -15,11 +16,12 @@ import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 @Feature("REST Tests")
-public class CountryListTest extends FunctionalTest {
+public class CountryListTest extends BaseRestTest {
 
     private final String basePath = "/country";
 
     @Test
+    @DisplayName("List Contains Ukraine")
     public void listContainsUkraine(){
         System.out.println("listContainsUkraine " + Thread.currentThread().getName());
         Gson gson = new Gson();
@@ -36,6 +38,7 @@ public class CountryListTest extends FunctionalTest {
     }
 
     @Test
+    @DisplayName("List Contains Algeria Result")
     public void listContainsAlgeriaResult(){
         System.out.println("listContainsAlgeria " + Thread.currentThread().getName());
 
@@ -55,6 +58,6 @@ public class CountryListTest extends FunctionalTest {
                 .get()
                 ;
 
-        Assert.assertEquals(expectedAlgeria.toString(), actualAlgeria.toString());
+        AssertObjectsEquality.assertResultObjectsEquality(actualAlgeria, expectedAlgeria);
     }
 }
