@@ -12,8 +12,8 @@ public class BaseContext {
         this.driver = driver;
     }
 
-    @Attachment(value = "Screen {0}", type = "image/png")
-    public byte[] makeScreenshot(String name) {
+    @Attachment(value = "Screen: ", type = "image/png")
+    public byte[] makeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

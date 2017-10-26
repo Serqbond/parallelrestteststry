@@ -19,14 +19,14 @@ public class GoogleSearchContext extends BaseContext {
     @Step("Open search page")
     public GoogleSearchContext opensTheSearchApp(String baseUrl) {
         googleSearchPage.open(baseUrl);
-        makeScreenshot("opensTheSearchApp");
+        makeScreenshot();
         return this;
     }
 
     @Step("Enter search text")
     public GoogleSearchContext searchesFor(String searchTerm) {
         googleSearchPage.enterSearchTerm(searchTerm);
-        makeScreenshot("searchesFor");
+        makeScreenshot();
         return this;
     }
 
