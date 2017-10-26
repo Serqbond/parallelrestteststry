@@ -15,6 +15,7 @@ public class GoogleSearchContext extends BaseContext {
     private GoogleSearchPage googleSearchPage;
 
     public GoogleSearchContext(WebDriver driver){
+        super(driver);
         googleSearchPage = new GoogleSearchPage(driver);
     }
 
@@ -35,12 +36,11 @@ public class GoogleSearchContext extends BaseContext {
     @Step("Verify expected result")
     public GoogleSearchContext shouldSeeTitle(String title) {
         assertThat(googleSearchPage.getTitle(), is(equalTo(title)));
-        makeScreenshot("hg");
         return this;
     }
 
     @Attachment(value = "{0}", type = "image/png")
     public byte[] makeScreenshot(String name) {
-        return ((TakesScreenshot) googleSearchPage.getDriver()).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
