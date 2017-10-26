@@ -3,6 +3,7 @@ package serhii.test;
 import businessentities.serhii.be.allcountries.AllCountries;
 import businessentities.serhii.be.allcountries.Result;
 import com.google.gson.Gson;
+import io.qameta.allure.Feature;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +15,7 @@ import java.util.Collection;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
+@Feature("REST Tests")
 @RunWith(Parameterized.class)
 public class CountriesTest extends FunctionalTest{
 

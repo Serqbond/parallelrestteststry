@@ -20,6 +20,7 @@ public class SecondMixedTest extends BaseTest{
     private final String basePath = "/country";
 
     @Test
+    @DisplayName("Search For Banana Test")
     public void searchForBananaTest(){
 
         System.out.println("searchForBananaTest with REST " + Thread.currentThread().getName());
@@ -49,6 +50,7 @@ public class SecondMixedTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Search For Apple Test")
     public void searchForAppleTest(){
 
         System.out.println("searchForAppleTest with REST " + Thread.currentThread().getName());

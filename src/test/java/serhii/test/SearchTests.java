@@ -2,6 +2,7 @@ package serhii.test;
 
 import businessentities.*;
 import com.google.gson.*;
+import io.qameta.allure.Feature;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.Arrays;
@@ -9,6 +10,7 @@ import java.util.Arrays;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
+@Feature("REST Tests")
 public class SearchTests extends FunctionalTest{
 
     private final String basePath = "/state";

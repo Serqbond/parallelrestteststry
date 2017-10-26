@@ -4,6 +4,7 @@ import businessentities.CountryInfo;
 import businessentities.CountryInfoDeserializer;
 import businessentities.StateResponse;
 import com.google.gson.*;
+import io.qameta.allure.Feature;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -19,6 +20,7 @@ import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
+@Feature("REST Tests")
 public class AllStatesTest extends FunctionalTest{
 
     private final String basePath = "/state";
