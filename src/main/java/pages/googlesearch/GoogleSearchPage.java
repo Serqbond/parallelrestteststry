@@ -20,6 +20,7 @@ public class GoogleSearchPage extends BasePage{
         String xPath = "//a[contains(., '" + textToSearch + "')]";
         WebElement element = this.driver.findElement(By.xpath(xPath));
         Utilities.Highlight(this.driver, element);
+        Utilities.scrollIntoView(this.driver, element);
         return element;
     }
 
