@@ -22,8 +22,6 @@ public class FirstMixedUITest extends BaseUITest {
 
     private final String basePath = "/state";
 
-//    @Rule
-//    public Retry retry = new Retry(2);
     @Test
     @DisplayName("Search For Pear Test")
     @Description("In this cool test we will test only cool features")
@@ -44,7 +42,7 @@ public class FirstMixedUITest extends BaseUITest {
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("pear")
-                .shouldSeeTitle("pearloili - Пошук Google")
+                .shouldSeeTitle("pear - Пошук Google")
                 .shouldSeeSearchResult("Pears: Health Benefits and Nutritional Information - Medical News Today");
 
 
