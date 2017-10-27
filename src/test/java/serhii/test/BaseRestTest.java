@@ -2,17 +2,14 @@ package serhii.test;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import io.restassured.RestAssured;
-
-import static io.restassured.RestAssured.given;
 
 public class BaseRestTest {
 
     protected static RequestSpecification requestSpecification;
+    protected static RestAssured client;
 
     @BeforeClass
     public static void setup() {
@@ -24,7 +21,8 @@ public class BaseRestTest {
             baseHost = "http://services.groupkt.com";
         }
 
-        RestAssured.baseURI = baseHost;
+        client = new RestAssured();
+        client.baseURI = baseHost;
 
         requestSpecification = new RequestSpecBuilder()
                 //.log(LogDetail.HEADERS)

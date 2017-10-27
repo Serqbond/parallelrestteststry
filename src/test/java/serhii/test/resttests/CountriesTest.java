@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import restcontext.RestContext;
 import serhii.test.BaseRestTest;
 
 import java.util.Arrays;
@@ -20,6 +21,8 @@ import static io.restassured.RestAssured.given;
 @Feature("REST Tests")
 @RunWith(Parameterized.class)
 public class CountriesTest extends BaseRestTest {
+
+    private final String countryGetAllPath  = "/country/get/all";
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
@@ -49,7 +52,12 @@ public class CountriesTest extends BaseRestTest {
                 .setAlpha3_code(alphaCode3)
                 ;
 
-        String response = given(requestSpecification).get("/country/get/all").body().asString();
+
+        String response = RestContext.given(requestSpecification)
+                .get(countryGetAllPath)
+                .body()
+                .asString();
+
         Gson gson = new Gson();
         AllCountries countries = gson.fromJson(response, AllCountries.class);
 
