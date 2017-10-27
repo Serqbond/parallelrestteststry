@@ -53,7 +53,7 @@ public class CountriesTest extends BaseRestTest {
                 ;
 
 
-        String response = RestContext.given(requestSpecification)
+        String response = given(requestSpecification)
                 .get(countryGetAllPath)
                 .body()
                 .asString();

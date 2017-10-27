@@ -9,7 +9,7 @@ import io.restassured.RestAssured;
 public class BaseRestTest {
 
     protected static RequestSpecification requestSpecification;
-    protected static RestAssured client;
+    //protected static RestAssured client;
 
     @BeforeClass
     public static void setup() {
@@ -20,9 +20,8 @@ public class BaseRestTest {
         if(baseHost==null){
             baseHost = "http://services.groupkt.com";
         }
-
-        client = new RestAssured();
-        client.baseURI = baseHost;
+        
+        RestAssured.baseURI = baseHost;
 
         requestSpecification = new RequestSpecBuilder()
                 //.log(LogDetail.HEADERS)
