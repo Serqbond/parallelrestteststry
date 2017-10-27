@@ -7,9 +7,11 @@ import com.google.gson.Gson;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.Rule;
 import org.junit.Test;
 import serhii.test.BaseUITest;
 import uicontext.googlesearchcontext.GoogleSearchContext;
+import utilities.Retry;
 
 import java.util.Arrays;
 import static io.restassured.RestAssured.given;
@@ -20,6 +22,8 @@ public class FirstMixedUITest extends BaseUITest {
 
     private final String basePath = "/state";
 
+//    @Rule
+//    public Retry retry = new Retry(2);
     @Test
     @DisplayName("Search For Pear Test")
     @Description("In this cool test we will test only cool features")
@@ -40,7 +44,7 @@ public class FirstMixedUITest extends BaseUITest {
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("pear")
-                .shouldSeeTitle("pear - Пошук Google")
+                .shouldSeeTitle("pearloili - Пошук Google")
                 .shouldSeeSearchResult("Pears: Health Benefits and Nutritional Information - Medical News Today");
 
 
