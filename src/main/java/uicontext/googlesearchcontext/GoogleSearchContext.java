@@ -32,7 +32,15 @@ public class GoogleSearchContext extends BaseContext {
 
     @Step("Verify expected result")
     public GoogleSearchContext shouldSeeTitle(String title) {
+        makeScreenshot();
         assertThat(googleSearchPage.getTitle(), is(equalTo(title)));
+        return this;
+    }
+
+    @Step("Verify expected result")
+    public GoogleSearchContext shouldSeeSearchResult(String name) {
+        googleSearchPage.getResults(name);
+        makeScreenshot();
         return this;
     }
 }

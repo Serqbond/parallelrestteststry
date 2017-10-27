@@ -40,7 +40,9 @@ public class FirstMixedUITest extends BaseUITest {
         context
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("pear")
-                .shouldSeeTitle("pear - Пошук Google");
+                .shouldSeeTitle("pear - Пошук Google")
+                .shouldSeeSearchResult("Pears: Health Benefits and Nutritional Information - Medical News Today");
+
 
         String response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
         Gson gson = new Gson();
