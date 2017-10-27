@@ -1,10 +1,8 @@
 package uihelpers;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
 public class WebDriverListener implements WebDriverEventListener {
@@ -35,17 +33,12 @@ public class WebDriverListener implements WebDriverEventListener {
 
     }
 
-    @Step("Before navigating to url")
     @Override
     public void beforeNavigateTo(String url, WebDriver driver) {
-        System.out.println("Before navigating to url printing the browser associated capabilities");
     }
 
-    @Step("After navigating to url")
     @Override
     public void afterNavigateTo(String url, WebDriver driver) {
-        System.out.format("After navigating to %s printing the browser associated capabilities", url);
-        System.out.println();
     }
 
     @Override
@@ -78,18 +71,14 @@ public class WebDriverListener implements WebDriverEventListener {
 
     }
 
-    @Step("Looking for element")
     @Override
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-        System.out.format("Looking for element to \"%s\" printing the browser associated capabilities", by.toString());
-        System.out.println();
+
     }
 
-    @Step("After Looking for element")
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-        System.out.format("After Looking for element to \"%s\" printing the browser associated capabilities", by.toString());
-        System.out.println();
+
     }
 
     @Override
