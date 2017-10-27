@@ -3,6 +3,7 @@ package uihelpers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -37,9 +38,14 @@ public class WebDriverService {
         System.setProperty("webdriver.chrome.driver", driverPath);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        WebDriver chromeDriver = new ChromeDriver(options);
+        chromeDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        chromeDriver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+
+        EventFiringWebDriver efwd = new EventFiringWebDriver(chromeDriver);
+        WebDriverListener eventListener = new WebDriverListener(chromeDriver);
+        efwd.register(eventListener);
+        driver = efwd;
     }
 
     private void setBaseUrl(){
