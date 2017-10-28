@@ -9,13 +9,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import restcontext.RestContext;
 import serhii.test.BaseRestTest;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 @Feature("REST Tests")
@@ -52,7 +50,6 @@ public class CountriesTest extends BaseRestTest {
                 .setAlpha3_code(alphaCode3)
                 ;
 
-
         String response = given(requestSpecification)
                 .get(countryGetAllPath)
                 .body()
@@ -69,5 +66,4 @@ public class CountriesTest extends BaseRestTest {
 
         Assert.assertEquals(expectedAlgeria.toString(), actualAlgeria.toString());
     }
-
 }

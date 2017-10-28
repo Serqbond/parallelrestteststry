@@ -20,7 +20,7 @@ public class BaseRestTest {
         if(baseHost==null){
             baseHost = "http://services.groupkt.com";
         }
-        
+
         RestAssured.baseURI = baseHost;
 
         requestSpecification = new RequestSpecBuilder()
