@@ -1,8 +1,8 @@
 package serhii.test.resttests;
 
-import businessentities.CountryInfo;
-import businessentities.CountryInfoDeserializer;
-import businessentities.StateResponse;
+import models.CountryInfo;
+import models.CountryInfoDeserializer;
+import models.StateResponse;
 import com.google.gson.*;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;

@@ -1,7 +1,7 @@
 package assertions;
 
-import businessentities.CountryInfo;
-import businessentities.serhii.be.allcountries.Result;
+import models.CountryInfo;
+import models.allcountries.Result;
 import io.qameta.allure.Step;
 import org.junit.Assert;
 

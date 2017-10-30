@@ -1,4 +1,4 @@
-package businessentities;
+package models;
 
 import com.google.gson.*;
 

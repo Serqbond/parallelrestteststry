@@ -1,17 +1,15 @@
 package serhii.test.mixedtests;
 
 import assertions.AssertObjectsEquality;
-import businessentities.CountryInfo;
-import businessentities.StateResponse;
+import models.CountryInfo;
+import models.StateResponse;
 import com.google.gson.Gson;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.Rule;
 import org.junit.Test;
 import serhii.test.BaseUITest;
 import uicontext.googlesearchcontext.GoogleSearchContext;
-import utilities.Retry;
 
 import java.util.Arrays;
 import static io.restassured.RestAssured.given;

@@ -1,8 +1,8 @@
 package serhii.test.resttests;
 
 import assertions.AssertObjectsEquality;
-import businessentities.serhii.be.allcountries.AllCountries;
-import businessentities.serhii.be.allcountries.Result;
+import models.allcountries.AllCountries;
+import models.allcountries.Result;
 import com.google.gson.Gson;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;

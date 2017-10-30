@@ -1,6 +1,6 @@
 package serhii.test.resttests;
 
-import businessentities.StateResponse;
+import models.StateResponse;
 import com.google.gson.Gson;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
@@ -18,7 +18,7 @@ public class AllCountriesTest extends BaseRestTest {
 
     private final String basePath = "/country";
     private final String getAllUrl = "/get/all";
-    private final String getIsoCodeWhithParam = "/get/iso2code/%s";
+    private final String getIsoCodeWithParam = "/get/iso2code/%s";
 
 
     @Test
@@ -37,7 +37,7 @@ public class AllCountriesTest extends BaseRestTest {
         String indiaCode = "IN";
         System.out.println("getCountryByIsoCode " + Thread.currentThread().getName());
         given(requestSpecification)
-                .get(basePath + String.format(getIsoCodeWhithParam, indiaCode))
+                .get(basePath + String.format(getIsoCodeWithParam, indiaCode))
                 .then()
                 .body("RestResponse.result.name", is("India"));
     }
@@ -48,7 +48,7 @@ public class AllCountriesTest extends BaseRestTest {
         System.out.println("noMatchingCountry " + Thread.currentThread().getName());
         String noCountryCode = "IU";
         String response = given(requestSpecification)
-                .get(basePath + String.format(getIsoCodeWhithParam, noCountryCode))
+                .get(basePath + String.format(getIsoCodeWithParam, noCountryCode))
                 .body()
                 .asString();
 

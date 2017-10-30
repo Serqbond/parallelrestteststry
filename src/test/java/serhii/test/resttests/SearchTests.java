@@ -1,11 +1,10 @@
 package serhii.test.resttests;
 
 import assertions.AssertObjectsEquality;
-import businessentities.*;
+import models.*;
 import com.google.gson.*;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
 import org.junit.Test;
 import serhii.test.BaseRestTest;
 

@@ -1,6 +1,6 @@
 package serhii.test.mixedtests;
 
-import businessentities.serhii.be.allcountries.AllCountries;
+import models.allcountries.AllCountries;
 import com.google.gson.Gson;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
