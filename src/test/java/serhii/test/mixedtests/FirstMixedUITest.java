@@ -41,7 +41,7 @@ public class FirstMixedUITest extends BaseUITest {
                 .opensTheSearchApp(baseUrl)
                 .searchesFor("pear")
                 .shouldSeeTitle("pear - Пошук Google")
-                .shouldSeeSearchResult("Pears: Health Benefits and Nutritional Information - Medical News Today");
+                .shouldSeeSearchResult("Pears: Health benefits and nutritional information - Medical News Today");
 
 
         String response = given(requestSpecification).get(basePath + "/search/IND?text=pradesh").body().asString();
